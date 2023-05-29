@@ -423,6 +423,22 @@ DefaultTableModel modelo=new DefaultTableModel();
 txt_id_venta.setText(getIdVenta());
 txtfactura.setText(getfactura());
 
+factura_2.recibir_total.setText(total.getText());
+
+for (int i=0;i<ventas.getRowCount();i++){
+    String Datos[]=new String[9];
+    Datos[0]=ventas.getValueAt(i,0).toString();
+    Datos[1]=ventas.getValueAt(i,1).toString();
+    Datos[2]=ventas.getValueAt(i,2).toString();
+    Datos[3]=ventas.getValueAt(i,3).toString();
+    Datos[4]=ventas.getValueAt(i,4).toString();
+    Datos[5]=ventas.getValueAt(i,5).toString();
+    Datos[6]=ventas.getValueAt(i,6).toString();
+    Datos[7]=ventas.getValueAt(i,7).toString();
+    Datos[8]=ventas.getValueAt(i,8).toString();
+    
+    factura_2.modelo2.addRow(Datos);
+}
 modelo.setRowCount(0);
 total.setText("");
     }//GEN-LAST:event_genvenActionPerformed
