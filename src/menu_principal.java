@@ -44,6 +44,9 @@ public class menu_principal extends javax.swing.JFrame {
         registrar_v = new javax.swing.JMenuItem();
         funciones_v = new javax.swing.JMenuItem();
         listado_v = new javax.swing.JMenuItem();
+        empleados = new javax.swing.JMenu();
+        funciones_e = new javax.swing.JMenuItem();
+        Listado_e = new javax.swing.JMenuItem();
         proveedores = new javax.swing.JMenu();
         registrar_pr = new javax.swing.JMenuItem();
         funciones_pr = new javax.swing.JMenuItem();
@@ -77,7 +80,7 @@ public class menu_principal extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Big Pharma");
         Escritorio.add(jLabel5);
-        jLabel5.setBounds(60, 80, 169, 43);
+        jLabel5.setBounds(60, 80, 169, 42);
 
         jMenuBar1.setBackground(new java.awt.Color(0, 51, 102));
         jMenuBar1.setBorder(null);
@@ -152,6 +155,29 @@ public class menu_principal extends javax.swing.JFrame {
         ventas.add(listado_v);
 
         jMenuBar1.add(ventas);
+
+        empleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconfinder-3-avatar-2754579_120516 (1).png"))); // NOI18N
+        empleados.setText("Empleados");
+
+        funciones_e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Datos empleado.png"))); // NOI18N
+        funciones_e.setText("Datos empleados");
+        funciones_e.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funciones_eActionPerformed(evt);
+            }
+        });
+        empleados.add(funciones_e);
+
+        Listado_e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/listado.png"))); // NOI18N
+        Listado_e.setText("Listado empleados");
+        Listado_e.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Listado_eActionPerformed(evt);
+            }
+        });
+        empleados.add(Listado_e);
+
+        jMenuBar1.add(empleados);
 
         proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/transfer_man_employee_user_avatar_arrow_refresh_icon_141997.png"))); // NOI18N
         proveedores.setText("Proveedores");
@@ -245,6 +271,12 @@ public class menu_principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Listado_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Listado_eActionPerformed
+        tabla_empleadoo abrir= new tabla_empleadoo();
+     Escritorio.add(abrir);
+      abrir.show();
+    }//GEN-LAST:event_Listado_eActionPerformed
+
     private void registrar_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_pActionPerformed
       registrar_productoss abrir= new registrar_productoss();
       Escritorio.add(abrir);
@@ -267,6 +299,9 @@ public class menu_principal extends javax.swing.JFrame {
        registrar_ventaa abrir2= new registrar_ventaa();
       Escritorio.add(abrir2);
       abrir2.show();
+      factura_2 abrir= new factura_2();
+      Escritorio.add(abrir);
+      abrir.show();
     }//GEN-LAST:event_registrar_vActionPerformed
 
     private void funciones_vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funciones_vActionPerformed
@@ -280,6 +315,12 @@ public class menu_principal extends javax.swing.JFrame {
       Escritorio.add(abrir);
       abrir.show();
     }//GEN-LAST:event_listado_vActionPerformed
+
+    private void funciones_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funciones_eActionPerformed
+      funciones_empleadoss abrir= new funciones_empleadoss();
+      Escritorio.add(abrir);
+      abrir.show();
+    }//GEN-LAST:event_funciones_eActionPerformed
 
     private void registrar_prActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_prActionPerformed
      registrar_proveedorr abrir= new registrar_proveedorr();
@@ -361,11 +402,14 @@ public class menu_principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem Listado_cu;
+    private javax.swing.JMenuItem Listado_e;
     private javax.swing.JMenuItem Listado_p;
     private javax.swing.JMenuItem Listado_pr;
     public javax.swing.JMenu Productos;
     public javax.swing.JMenu cuenta;
+    private javax.swing.JMenu empleados;
     private javax.swing.JMenuItem funciones_cu;
+    public javax.swing.JMenuItem funciones_e;
     public javax.swing.JMenuItem funciones_p;
     public javax.swing.JMenuItem funciones_pr;
     public javax.swing.JMenuItem funciones_v;

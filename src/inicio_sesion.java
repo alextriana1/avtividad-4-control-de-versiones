@@ -39,6 +39,8 @@ public class inicio_sesion extends javax.swing.JFrame {
         txtpass = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         btm_InicioSesion = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        selector = new javax.swing.JComboBox<>();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,6 +93,20 @@ public class inicio_sesion extends javax.swing.JFrame {
         });
         getContentPane().add(btm_InicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 140, 30));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setText("Rol:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 60, -1));
+
+        selector.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        selector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Administrador", "Empleado" }));
+        selector.setToolTipText("");
+        selector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(selector, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 170, 30));
+
         Fondo.setBackground(new java.awt.Color(204, 204, 204));
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/prueba.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 467, 540));
@@ -113,8 +129,9 @@ public class inicio_sesion extends javax.swing.JFrame {
             int resultado = 0;
             String pass = txtpass.getText();
             String usuario = txtusuario.getText();
+            String tipo = selector.getSelectedItem().toString();
 
-            String SQL = ("SELECT* FROM cuenta WHERE correo='" + usuario + "' and contraseña='" + pass + "'");
+            String SQL = ("SELECT* FROM cuenta WHERE correo='" + usuario + "' and contraseña='" + pass + "' and tipo='" + tipo + "' ");
 
             Statement st = reg.createStatement();
 
@@ -123,10 +140,21 @@ public class inicio_sesion extends javax.swing.JFrame {
             if (rs.next()) {
                 resultado = 1;
                 if (resultado == 1) {      
-                    if (txtusuario.getText().equals(usuario)) {
+                    if (selector.getSelectedItem().equals("Administrador")) {
                         menu_principal H = new menu_principal();
                         
                         H.show();
+                       
+                    } else if (selector.getSelectedItem().equals("Empleado")) {
+                        menu_principal H = new menu_principal();
+                        H.funciones_p.setVisible(false);
+                        H.funciones_v.setVisible(false);
+                        H.funciones_e.setVisible(false);
+                        H.registrar_pr.setVisible(false);
+                        H.funciones_pr.setVisible(false);
+                        H.cuenta.setVisible(false);    
+                        H.show();
+
                     }
 
                 } else {
@@ -142,6 +170,10 @@ public class inicio_sesion extends javax.swing.JFrame {
         
                 
     }//GEN-LAST:event_btm_InicioSesionActionPerformed
+
+    private void selectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectorActionPerformed
     
     
     
@@ -187,6 +219,8 @@ public class inicio_sesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JComboBox<String> selector;
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
